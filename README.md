@@ -162,8 +162,8 @@ vercel --prod     # production
 ```
 
 Set the same env vars in the Vercel project settings. `vercel.json` includes an optional cron that
-calls `/api/run-cycle` hourly so the log keeps growing. After deploying, paste the URL at the top of
-this README.
+calls `/api/run-cycle` once daily (Vercel's Hobby plan allows daily cron jobs; bump to a finer schedule
+on Pro). After deploying, paste the URL at the top of this README.
 
 > Note: on Vercel's serverless filesystem, writes to `data/*.json` are ephemeral per-invocation. For a
 > continuously-growing **committed** log, run cycles locally (`npm run cycle`) and commit the JSON, or
