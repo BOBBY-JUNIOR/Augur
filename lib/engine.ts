@@ -10,8 +10,10 @@ import { ACTION_THRESHOLD, decide } from "./consensus";
 import { generateRationale } from "./mulerun";
 import { classifyRegime, strategyForRegime } from "./regime";
 import {
+  readMarket,
   readTrades,
   readWeights,
+  writeMarket,
   writeTrades,
   writeWeights,
 } from "./store";
@@ -79,11 +81,20 @@ export async function runCycle(opts: CycleOptions = {}): Promise<CycleResult> {
   const seedKey = opts.seedKey ?? `${ranAt.slice(0, 13)}-${cycleIndex}`;
 
   // Pre-fetch candles once per asset (reused for closing + new decisions).
+  // Prior series is passed so simulated prices stay continuous across cycles.
+  const prevMarket = await readMarket();
   const market = await Promise.all(
     ASSETS.map(async (asset) => {
-      const { candles, source } = await getCandles(asset, `${asset}-${seedKey}`);
+      const { candles, source } = await getCandles(
+        asset,
+        `${asset}-${seedKey}`,
+        prevMarket[asset]
+      );
       return { asset, candles, source, last: candles[candles.length - 1].close };
     })
+  );
+  await writeMarket(
+    Object.fromEntries(market.map((m) => [m.asset, m.candles]))
   );
   const priceOf = (asset: string) =>
     market.find((m) => m.asset === asset)!.last;

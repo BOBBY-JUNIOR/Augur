@@ -16,8 +16,8 @@ import {
   bollingerWidth,
   Candle,
   clamp,
+  extendCandles,
   momentum,
-  synthCandles,
 } from "./indicators";
 import type { AssetId, SkillSignal, TechnicalReadout } from "./types";
 
@@ -60,10 +60,14 @@ export function bitgetAuthHeaders(
   };
 }
 
-/** Fetch live candles; fall back to deterministic synthesis on any failure. */
+/**
+ * Fetch live candles; on any failure, continue the prior simulated series so
+ * prices stay continuous across cycles (`prev` is the asset's last stored window).
+ */
 export async function getCandles(
   asset: AssetId,
-  seedKey: string
+  seedKey: string,
+  prev?: Candle[]
 ): Promise<{ candles: Candle[]; source: "live" | "simulated" }> {
   try {
     const res = await fetch(granularityCandles(asset), {
@@ -89,7 +93,7 @@ export async function getCandles(
     if (candles.length < 30) throw new Error("too few candles");
     return { candles, source: "live" };
   } catch {
-    return { candles: synthCandles(asset, seedKey), source: "simulated" };
+    return { candles: extendCandles(prev, asset, seedKey), source: "simulated" };
   }
 }
 

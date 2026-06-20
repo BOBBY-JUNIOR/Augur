@@ -4,11 +4,13 @@
 
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import type { Candle } from "./indicators";
 import { SKILLS, type SkillId, type TradeRecord, type Weights } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const TRADES_FILE = path.join(DATA_DIR, "trades.json");
 const WEIGHTS_FILE = path.join(DATA_DIR, "weights.json");
+const MARKET_FILE = path.join(DATA_DIR, "market.json");
 
 async function ensureDir() {
   await fs.mkdir(DATA_DIR, { recursive: true });
@@ -57,4 +59,21 @@ export async function readWeights(): Promise<Weights> {
 export async function writeWeights(w: Weights): Promise<void> {
   await ensureDir();
   await fs.writeFile(WEIGHTS_FILE, JSON.stringify(w, null, 2) + "\n", "utf8");
+}
+
+/** Rolling candle series per asset — keeps simulated prices continuous across cycles. */
+export async function readMarket(): Promise<Record<string, Candle[]>> {
+  try {
+    return JSON.parse(await fs.readFile(MARKET_FILE, "utf8")) as Record<
+      string,
+      Candle[]
+    >;
+  } catch {
+    return {};
+  }
+}
+
+export async function writeMarket(m: Record<string, Candle[]>): Promise<void> {
+  await ensureDir();
+  await fs.writeFile(MARKET_FILE, JSON.stringify(m) + "\n", "utf8");
 }

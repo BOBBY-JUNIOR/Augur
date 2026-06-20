@@ -85,6 +85,53 @@ export function synthCandles(
   return candles;
 }
 
+/**
+ * Continue an existing candle series forward by `steps` bars, starting from its
+ * last close so price is *continuous* across cycles (entry and a later exit are
+ * only a few bars apart — realistic moves, not independent draws). Seeded by
+ * seedKey so each cycle still explores a fresh local drift/regime. Falls back to
+ * a fresh synthesized window when there is no prior history.
+ */
+export function extendCandles(
+  prev: Candle[] | undefined,
+  asset: string,
+  seedKey: string,
+  steps = 3,
+  window = 120
+): Candle[] {
+  const base = BASE_PRICE[asset] ?? 100;
+  const candles: Candle[] =
+    prev && prev.length >= 30 ? [...prev] : synthCandles(asset, seedKey, window);
+
+  const rnd = mulberry32(hashSeed(`${asset}:${seedKey}:ext`));
+  const baseVol = (asset === "DOGEUSDT" ? 0.045 : 0.02) * (0.6 + rnd());
+  const driftBias = (rnd() - 0.5) * 2;
+  const trendiness = rnd();
+  const drift = driftBias * trendiness * baseVol * 0.6;
+
+  let price = candles[candles.length - 1].close;
+  const startTs = candles[candles.length - 1].ts;
+  for (let i = 0; i < steps; i++) {
+    const revert = ((base - price) / base) * (1 - trendiness) * 0.04;
+    const shock = (rnd() - 0.5) * 2 * baseVol;
+    const ret = drift + revert + shock;
+    const open = price;
+    const close = Math.max(open * (1 + ret), base * 0.05);
+    const hi = Math.max(open, close) * (1 + rnd() * baseVol * 0.6);
+    const lo = Math.min(open, close) * (1 - rnd() * baseVol * 0.6);
+    candles.push({
+      ts: startTs + (i + 1) * 3600_000,
+      open,
+      high: hi,
+      low: lo,
+      close,
+      volume: base * (50 + rnd() * 100),
+    });
+    price = close;
+  }
+  return candles.slice(-window);
+}
+
 function ema(values: number[], period: number): number[] {
   const k = 2 / (period + 1);
   const out: number[] = [];
