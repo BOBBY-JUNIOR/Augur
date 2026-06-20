@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/dev/workspace-b0b2d5bf log --oneline -10)",
+      "Bash(git -C /Users/dev/workspace-b0b2d5bf branch --show-current)",
+      "Bash(git -C /Users/dev/workspace-b0b2d5bf status --short)",
+      "Bash(curl -s -m 10 \"https://api.bitget.com/api/v2/spot/market/candles?symbol=BTCUSDT&granularity=1h&limit=3\")",
+      "Bash(curl -s -m 10 \"https://api.bitget.com/api/v2/spot/market/tickers?symbol=BTCUSDT\")",
+      "Bash(curl -s -m 10 -w \"\\\\nHTTP %{http_code}\\\\n\" \"https://api.bitget.com/api/v2/spot/market/tickers?symbol=BTCUSDT\")",
+      "Bash(curl -s -m 10 -w \"\\\\nHTTP %{http_code}\\\\n\" \"https://api.bitget.com/api/spot/v1/market/ticker?symbol=BTCUSDT_SPBL\")",
+      "Bash(npm install *)",
+      "Bash(npx tsx *)",
+      "Bash(node -e ' *)",
+      "Bash(npm run *)"
+    ]
+  }
+}

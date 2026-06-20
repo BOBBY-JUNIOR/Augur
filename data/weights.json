@@ -1,0 +1,90 @@
+{
+  "weights": {
+    "macro-analyst": 0.16944658652127745,
+    "sentiment-analyst": 0.12558616181853036,
+    "technical-analysis": 0.2760613188721715,
+    "market-intel": 0.20184299592562008,
+    "news-briefing": 0.2270629368624007
+  },
+  "updates": 6,
+  "updatedAt": "2026-06-20T17:17:35.827Z",
+  "history": [
+    {
+      "t": "2026-06-20T17:00:59.932Z",
+      "updates": 0,
+      "weights": {
+        "macro-analyst": 0.2,
+        "sentiment-analyst": 0.2,
+        "technical-analysis": 0.2,
+        "market-intel": 0.2,
+        "news-briefing": 0.2
+      }
+    },
+    {
+      "t": "2026-06-20T17:01:06.083Z",
+      "updates": 0,
+      "weights": {
+        "macro-analyst": 0.2,
+        "sentiment-analyst": 0.2,
+        "technical-analysis": 0.2,
+        "market-intel": 0.2,
+        "news-briefing": 0.2
+      }
+    },
+    {
+      "t": "2026-06-20T17:01:12.116Z",
+      "updates": 0,
+      "weights": {
+        "macro-analyst": 0.2,
+        "sentiment-analyst": 0.2,
+        "technical-analysis": 0.2,
+        "market-intel": 0.2,
+        "news-briefing": 0.2
+      }
+    },
+    {
+      "t": "2026-06-20T17:01:18.161Z",
+      "updates": 3,
+      "weights": {
+        "macro-analyst": 0.20591056146280431,
+        "sentiment-analyst": 0.12723678916042033,
+        "technical-analysis": 0.24903162386070457,
+        "market-intel": 0.1787962728331333,
+        "news-briefing": 0.23902475268293746
+      }
+    },
+    {
+      "t": "2026-06-20T17:01:24.204Z",
+      "updates": 4,
+      "weights": {
+        "macro-analyst": 0.19062082060339733,
+        "sentiment-analyst": 0.12921010792602738,
+        "technical-analysis": 0.2581970671270743,
+        "market-intel": 0.18692523511310313,
+        "news-briefing": 0.23504676923039786
+      }
+    },
+    {
+      "t": "2026-06-20T17:01:30.232Z",
+      "updates": 4,
+      "weights": {
+        "macro-analyst": 0.19062082060339733,
+        "sentiment-analyst": 0.12921010792602738,
+        "technical-analysis": 0.2581970671270743,
+        "market-intel": 0.18692523511310313,
+        "news-briefing": 0.23504676923039786
+      }
+    },
+    {
+      "t": "2026-06-20T17:17:35.827Z",
+      "updates": 6,
+      "weights": {
+        "macro-analyst": 0.16944658652127745,
+        "sentiment-analyst": 0.12558616181853036,
+        "technical-analysis": 0.2760613188721715,
+        "market-intel": 0.20184299592562008,
+        "news-briefing": 0.2270629368624007
+      }
+    }
+  ]
+}

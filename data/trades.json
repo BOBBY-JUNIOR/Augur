@@ -1,0 +1,1337 @@
+[
+  {
+    "id": "48dea0b6-be50-43ab-b503-08f5c2d90b07",
+    "timestamp": "2026-06-20T17:17:35.827Z",
+    "asset": "BTCUSDT",
+    "regime": "unclear",
+    "strategy": "stay-flat",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.11875191173690386,
+        "confidence": 0.3333910908987059,
+        "adx": 16.669554544935295,
+        "volatility": 3.3858930545202828,
+        "bandWidth": 0.08534951854187332,
+        "lastPrice": 56652.57722187692,
+        "source": "simulated",
+        "note": "ADX 17 (no trend), ATR 3.39%, momentum -0.12."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.33083712684477723,
+        "confidence": 0.6315596328771858,
+        "note": "30-bar drift -3.3% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.17789854294586363,
+        "confidence": 0.4889492714729318,
+        "note": "7-bar momentum -1.5%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": 0.014266892881937512,
+        "confidence": 0.6445724258466811,
+        "note": "Volume expanding 19% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": -0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.16944658652127745,
+      "sentiment-analyst": 0.12558616181853036,
+      "technical-analysis": 0.2760613188721715,
+      "market-intel": 0.20184299592562008,
+      "news-briefing": 0.2270629368624007
+    },
+    "weightedScore": -0.22862662666206868,
+    "conviction": 0.22862662666206868,
+    "direction": "flat",
+    "rationale": "Holding BTCUSDT flat: the unclear regime selects a stay-flat posture, but the weighted consensus of -0.23 (conviction 23%) sits below the action threshold. market-intel (0.01) and news-briefing (-0.50) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 56652.57722187692,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "37cb02da-a2ab-4f79-b965-f450dc6f345e",
+    "timestamp": "2026-06-20T17:17:35.827Z",
+    "asset": "ETHUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.31210258477625324,
+        "confidence": 0.822418912083068,
+        "adx": 41.120945604153405,
+        "volatility": 2.6656689424716347,
+        "bandWidth": 0.09020451484745325,
+        "lastPrice": 4733.259945021058,
+        "source": "simulated",
+        "note": "ADX 41 (strong trend), ATR 2.67%, momentum 0.31."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.3156293603960766,
+        "confidence": 0.6844713696227547,
+        "note": "30-bar drift 4.6% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": 0.4974790032459028,
+        "confidence": 0.6487395016229514,
+        "note": "7-bar momentum 4.1%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": 0.276045219126081,
+        "confidence": 0.5377767018893194,
+        "note": "Volume expanding 9% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.16944658652127745,
+      "sentiment-analyst": 0.12558616181853036,
+      "technical-analysis": 0.2760613188721715,
+      "market-intel": 0.20184299592562008,
+      "news-briefing": 0.2270629368624007
+    },
+    "weightedScore": 0.36539718967183954,
+    "conviction": 0.36539718967183954,
+    "direction": "long",
+    "rationale": "Going long on ETHUSDT. The trending regime favors a trend-follow approach, and news-briefing leads the consensus at 0.50 (No outsized catalyst; defers to underlying drift.). Net weighted score 0.37 clears the conviction bar at 37%, with market-intel the main dissent — sized accordingly.",
+    "rationaleSource": "simulated",
+    "entryPrice": 4733.259945021058,
+    "status": "open",
+    "source": "simulated"
+  },
+  {
+    "id": "25296e94-7e9e-4efc-88f8-db7df314ed99",
+    "timestamp": "2026-06-20T17:17:35.827Z",
+    "asset": "DOGEUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.18745346610508676,
+        "confidence": 0.5752590244642518,
+        "adx": 28.76295122321259,
+        "volatility": 3.7570890375007453,
+        "bandWidth": 0.12158104527369454,
+        "lastPrice": 0.2487981996722429,
+        "source": "simulated",
+        "note": "ADX 29 (strong trend), ATR 3.76%, momentum 0.19."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.172229490493123,
+        "confidence": 0.623685635621569,
+        "note": "30-bar drift 3.1% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.9763929629160573,
+        "confidence": 0.7051228009112679,
+        "note": "7-bar momentum -5.1% (meme beta amplified).",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.2850066723698672,
+        "confidence": 0.4504507830387011,
+        "note": "Volume fading -0% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.16944658652127745,
+      "sentiment-analyst": 0.12558616181853036,
+      "technical-analysis": 0.2760613188721715,
+      "market-intel": 0.20184299592562008,
+      "news-briefing": 0.2270629368624007
+    },
+    "weightedScore": -0.003451612353570881,
+    "conviction": 0.003451612353570881,
+    "direction": "flat",
+    "rationale": "Holding DOGEUSDT flat: the trending regime selects a trend-follow posture, but the weighted consensus of -0.00 (conviction 0%) sits below the action threshold. news-briefing (0.50) and sentiment-analyst (-0.98) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 0.2487981996722429,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "f286afe4-c63c-46dc-812b-4a97e9e86132",
+    "timestamp": "2026-06-20T17:01:30.232Z",
+    "asset": "BTCUSDT",
+    "regime": "ranging",
+    "strategy": "mean-revert",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.05894163896916218,
+        "confidence": 0.28508040505810156,
+        "adx": 14.254020252905079,
+        "volatility": 1.8809785405120658,
+        "bandWidth": 0.058946424758055574,
+        "lastPrice": 47078.99462612217,
+        "source": "simulated",
+        "note": "ADX 14 (no trend), ATR 1.88%, momentum 0.06."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.14767324820337452,
+        "confidence": 0.5926464095068079,
+        "note": "30-bar drift 2.3% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.1567282933921102,
+        "confidence": 0.4783641466960551,
+        "note": "7-bar momentum -1.3%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.11508546693859964,
+        "confidence": 0.5338911933778965,
+        "note": "Volume fading -8% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.19062082060339733,
+      "sentiment-analyst": 0.12921010792602738,
+      "technical-analysis": 0.2581970671270743,
+      "market-intel": 0.18692523511310313,
+      "news-briefing": 0.23504676923039786
+    },
+    "weightedScore": 0.1350615434220088,
+    "conviction": 0.1350615434220088,
+    "direction": "flat",
+    "rationale": "Holding BTCUSDT flat: the ranging regime selects a mean-revert posture, but the weighted consensus of 0.14 (conviction 14%) sits below the action threshold. news-briefing (0.50) and sentiment-analyst (-0.16) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 47078.99462612217,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "21969fe4-751f-4a41-a8aa-c267182dd36f",
+    "timestamp": "2026-06-20T17:01:30.232Z",
+    "asset": "ETHUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.3178560200078963,
+        "confidence": 1,
+        "adx": 50.550333912829466,
+        "volatility": 2.093269558301196,
+        "bandWidth": 0.07423390957844296,
+        "lastPrice": 1995.2691827378592,
+        "source": "simulated",
+        "note": "ADX 51 (strong trend), ATR 2.09%, momentum -0.32."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -1,
+        "confidence": 0.9,
+        "note": "30-bar drift -12.1% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.5437529610889185,
+        "confidence": 0.6718764805444593,
+        "note": "7-bar momentum -4.5%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.31254328624449873,
+        "confidence": 0.567583808806007,
+        "note": "Volume fading -12% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": -0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.19062082060339733,
+      "sentiment-analyst": 0.12921010792602738,
+      "technical-analysis": 0.2581970671270743,
+      "market-intel": 0.18692523511310313,
+      "news-briefing": 0.23504676923039786
+    },
+    "weightedScore": -0.5301357696501862,
+    "conviction": 0.5301357696501862,
+    "direction": "short",
+    "rationale": "Going short on ETHUSDT. The trending regime favors a trend-follow approach, and macro-analyst leads the consensus at -1.00 (30-bar drift -12.1% framed against a stable vol backdrop.). Net weighted score -0.53 clears the conviction bar at 53%, with market-intel the main dissent — sized accordingly.",
+    "rationaleSource": "simulated",
+    "entryPrice": 1995.2691827378592,
+    "status": "closed",
+    "source": "simulated",
+    "exitPrice": 4733.259945021058,
+    "pnlPct": -1.372241292538882
+  },
+  {
+    "id": "e3035c5c-359c-40e9-b809-09a337ee0dc7",
+    "timestamp": "2026-06-20T17:01:30.232Z",
+    "asset": "DOGEUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.20738969315722217,
+        "confidence": 0.6303045806028297,
+        "adx": 31.515229030141484,
+        "volatility": 3.017499753246583,
+        "bandWidth": 0.07423749935781274,
+        "lastPrice": 0.16141232926271606,
+        "source": "simulated",
+        "note": "ADX 32 (strong trend), ATR 3.02%, momentum -0.21."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.3468355745750853,
+        "confidence": 0.6432427897550768,
+        "note": "30-bar drift -3.6% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.42763453571266874,
+        "confidence": 0.533635792410209,
+        "note": "7-bar momentum -2.2% (meme beta amplified).",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.164729356754782,
+        "confidence": 0.5300052343438406,
+        "note": "Volume fading -8% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": -0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.19062082060339733,
+      "sentiment-analyst": 0.12921010792602738,
+      "technical-analysis": 0.2581970671270743,
+      "market-intel": 0.18692523511310313,
+      "news-briefing": 0.23504676923039786
+    },
+    "weightedScore": -0.32046720799976297,
+    "conviction": 0.32046720799976297,
+    "direction": "short",
+    "rationale": "Going short on DOGEUSDT. The trending regime favors a trend-follow approach, and news-briefing leads the consensus at -0.50 (No outsized catalyst; defers to underlying drift.). Net weighted score -0.32 clears the conviction bar at 32%, with market-intel the main dissent — sized accordingly.",
+    "rationaleSource": "simulated",
+    "entryPrice": 0.16141232926271606,
+    "status": "closed",
+    "source": "simulated",
+    "exitPrice": 0.2487981996722429,
+    "pnlPct": -0.5413828721057414
+  },
+  {
+    "id": "d95ba4fd-1f63-47e8-a358-059ea8afdbc1",
+    "timestamp": "2026-06-20T17:01:24.204Z",
+    "asset": "BTCUSDT",
+    "regime": "unclear",
+    "strategy": "stay-flat",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.04944357761886767,
+        "confidence": 0.407965060021387,
+        "adx": 20.39825300106935,
+        "volatility": 1.9229904582119095,
+        "bandWidth": 0.04851145346901301,
+        "lastPrice": 64786.87285526181,
+        "source": "simulated",
+        "note": "ADX 20 (mild trend), ATR 1.92%, momentum -0.05."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.024764712569393596,
+        "confidence": 0.5316122608668159,
+        "note": "30-bar drift 0.8% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.46684091466692046,
+        "confidence": 0.6334204573334603,
+        "note": "7-bar momentum -3.9%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.3048363958195284,
+        "confidence": 0.6239546046165978,
+        "note": "Volume fading -17% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.19062082060339733,
+      "sentiment-analyst": 0.12921010792602738,
+      "technical-analysis": 0.2581970671270743,
+      "market-intel": 0.18692523511310313,
+      "news-briefing": 0.23504676923039786
+    },
+    "weightedScore": -0.02212276577211332,
+    "conviction": 0.02212276577211332,
+    "direction": "flat",
+    "rationale": "Holding BTCUSDT flat: the unclear regime selects a stay-flat posture, but the weighted consensus of -0.02 (conviction 2%) sits below the action threshold. news-briefing (0.50) and sentiment-analyst (-0.47) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 64786.87285526181,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "8790813f-14b1-40a8-bdfd-2514edc945ab",
+    "timestamp": "2026-06-20T17:01:24.204Z",
+    "asset": "ETHUSDT",
+    "regime": "unclear",
+    "strategy": "stay-flat",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.04810088927038976,
+        "confidence": 0.44675086434800465,
+        "adx": 22.33754321740023,
+        "volatility": 3.357021230455761,
+        "bandWidth": 0.09587941207947792,
+        "lastPrice": 5110.234684837434,
+        "source": "simulated",
+        "note": "ADX 22 (mild trend), ATR 3.36%, momentum 0.05."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.055851551148067925,
+        "confidence": 0.5056444367305236,
+        "note": "30-bar drift 0.1% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": 0.6377442253032499,
+        "confidence": 0.718872112651625,
+        "note": "7-bar momentum 5.3%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": 0.2989602111705889,
+        "confidence": 0.4526924787248113,
+        "note": "Volume expanding 0% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.19062082060339733,
+      "sentiment-analyst": 0.12921010792602738,
+      "technical-analysis": 0.2581970671270743,
+      "market-intel": 0.18692523511310313,
+      "news-briefing": 0.23504676923039786
+    },
+    "weightedScore": 0.28800999158085333,
+    "conviction": 0.28800999158085333,
+    "direction": "flat",
+    "rationale": "Holding ETHUSDT flat: the unclear regime selects a stay-flat posture, but the weighted consensus of 0.29 (conviction 29%) sits below the action threshold. sentiment-analyst (0.64) and macro-analyst (-0.06) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 5110.234684837434,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "d2ff0e24-d639-4d77-843b-7b95e50810a9",
+    "timestamp": "2026-06-20T17:01:24.204Z",
+    "asset": "DOGEUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.2595910279906618,
+        "confidence": 0.5329154245149834,
+        "adx": 26.64577122574917,
+        "volatility": 6.6694162506445345,
+        "bandWidth": 0.2073873680816966,
+        "lastPrice": 0.04515808510721801,
+        "source": "simulated",
+        "note": "ADX 27 (strong trend), ATR 6.67%, momentum -0.26."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 1,
+        "confidence": 0.9,
+        "note": "30-bar drift 15.8% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.8718077782687574,
+        "confidence": 0.6724399307089868,
+        "note": "7-bar momentum -4.5% (meme beta amplified).",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.2567374137130018,
+        "confidence": 0.4549202901025618,
+        "note": "Volume fading -0% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.19062082060339733,
+      "sentiment-analyst": 0.12921010792602738,
+      "technical-analysis": 0.2581970671270743,
+      "market-intel": 0.18692523511310313,
+      "news-briefing": 0.23504676923039786
+    },
+    "weightedScore": 0.16858703788405724,
+    "conviction": 0.16858703788405724,
+    "direction": "flat",
+    "rationale": "Holding DOGEUSDT flat: the trending regime selects a trend-follow posture, but the weighted consensus of 0.17 (conviction 17%) sits below the action threshold. macro-analyst (1.00) and sentiment-analyst (-0.87) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 0.04515808510721801,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "62570d9e-9210-46d3-9abd-114ba5095a44",
+    "timestamp": "2026-06-20T17:01:18.161Z",
+    "asset": "BTCUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.25239899349102235,
+        "confidence": 0.6860617251274072,
+        "adx": 34.30308625637036,
+        "volatility": 3.206508335567298,
+        "bandWidth": 0.1231531155630878,
+        "lastPrice": 61388.379614880985,
+        "source": "simulated",
+        "note": "ADX 34 (strong trend), ATR 3.21%, momentum -0.25."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.7668952251945648,
+        "confidence": 0.8513825292416094,
+        "note": "30-bar drift -8.8% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.35105280436180974,
+        "confidence": 0.5755264021809049,
+        "note": "7-bar momentum -2.9%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.21227738748201722,
+        "confidence": 0.546905490893012,
+        "note": "Volume fading -10% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": -0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.20591056146280431,
+      "sentiment-analyst": 0.12723678916042033,
+      "technical-analysis": 0.24903162386070457,
+      "market-intel": 0.1787962728331333,
+      "news-briefing": 0.23902475268293746
+    },
+    "weightedScore": -0.44672539037417275,
+    "conviction": 0.44672539037417275,
+    "direction": "short",
+    "rationale": "Going short on BTCUSDT. The trending regime favors a trend-follow approach, and macro-analyst leads the consensus at -0.77 (30-bar drift -8.8% framed against a risk-off vol backdrop.). Net weighted score -0.45 clears the conviction bar at 45%, with market-intel the main dissent — sized accordingly.",
+    "rationaleSource": "simulated",
+    "entryPrice": 61388.379614880985,
+    "status": "closed",
+    "source": "simulated",
+    "exitPrice": 64786.87285526181,
+    "pnlPct": -0.055360530147582
+  },
+  {
+    "id": "df2bcb3f-0675-46de-820a-811451976933",
+    "timestamp": "2026-06-20T17:01:18.161Z",
+    "asset": "ETHUSDT",
+    "regime": "ranging",
+    "strategy": "mean-revert",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.0583941437013627,
+        "confidence": 0.32558775040542626,
+        "adx": 16.279387520271314,
+        "volatility": 1.8411632103118347,
+        "bandWidth": 0.0527810116562128,
+        "lastPrice": 2902.9475245436124,
+        "source": "simulated",
+        "note": "ADX 16 (no trend), ATR 1.84%, momentum -0.06."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.1054193634669141,
+        "confidence": 0.5342980496303387,
+        "note": "30-bar drift -0.9% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.2041917982052001,
+        "confidence": 0.5020958991026001,
+        "note": "7-bar momentum -1.7%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.08431833386087646,
+        "confidence": 0.47194234393643386,
+        "note": "Volume expanding 2% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": -0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.20591056146280431,
+      "sentiment-analyst": 0.12723678916042033,
+      "technical-analysis": 0.24903162386070457,
+      "market-intel": 0.1787962728331333,
+      "news-briefing": 0.23902475268293746
+    },
+    "weightedScore": -0.21711513422040687,
+    "conviction": 0.21711513422040687,
+    "direction": "flat",
+    "rationale": "Holding ETHUSDT flat: the ranging regime selects a mean-revert posture, but the weighted consensus of -0.22 (conviction 22%) sits below the action threshold. technical-analysis (-0.06) and news-briefing (-0.50) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 2902.9475245436124,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "f76669c4-80cb-4f83-9c07-c789084d162b",
+    "timestamp": "2026-06-20T17:01:18.161Z",
+    "asset": "DOGEUSDT",
+    "regime": "unclear",
+    "strategy": "stay-flat",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.17042464598845733,
+        "confidence": 0.47547948075096164,
+        "adx": 23.773974037548083,
+        "volatility": 3.6312771450056514,
+        "bandWidth": 0.10301126349528128,
+        "lastPrice": 0.1871307418131839,
+        "source": "simulated",
+        "note": "ADX 24 (mild trend), ATR 3.63%, momentum 0.17."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.20827396301175455,
+        "confidence": 0.6404497529559338,
+        "note": "30-bar drift 3.5% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.01704672590316866,
+        "confidence": 0.40532710184474025,
+        "note": "7-bar momentum -0.1% (meme beta amplified).",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.03564413247336831,
+        "confidence": 0.5113443415032216,
+        "note": "Volume fading -6% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.20591056146280431,
+      "sentiment-analyst": 0.12723678916042033,
+      "technical-analysis": 0.24903162386070457,
+      "market-intel": 0.1787962728331333,
+      "news-briefing": 0.23902475268293746
+    },
+    "weightedScore": 0.20817623802906435,
+    "conviction": 0.20817623802906435,
+    "direction": "flat",
+    "rationale": "Holding DOGEUSDT flat: the unclear regime selects a stay-flat posture, but the weighted consensus of 0.21 (conviction 21%) sits below the action threshold. news-briefing (0.50) and market-intel (-0.04) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 0.1871307418131839,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "d51452d0-107a-4e58-a63f-94506e2f219e",
+    "timestamp": "2026-06-20T17:01:12.116Z",
+    "asset": "BTCUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.07579032208483108,
+        "confidence": 0.8042824479719739,
+        "adx": 40.2141223985987,
+        "volatility": 3.7475816044779307,
+        "bandWidth": 0.11627755148230329,
+        "lastPrice": 61292.67859558102,
+        "source": "simulated",
+        "note": "ADX 40 (strong trend), ATR 3.75%, momentum 0.08."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.10827474672654207,
+        "confidence": 0.5916131894080503,
+        "note": "30-bar drift 2.3% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -1,
+        "confidence": 0.95,
+        "note": "7-bar momentum -10.0%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.5494341082480919,
+        "confidence": 0.47129087274512027,
+        "note": "Volume expanding 2% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.4,
+        "confidence": 0.4,
+        "note": "Move looks headline-stretched; flags mean-reversion risk.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": -0.28718561496580114,
+    "conviction": 0.28718561496580114,
+    "direction": "short",
+    "rationale": "Going short on BTCUSDT. The trending regime favors a trend-follow approach, and sentiment-analyst leads the consensus at -1.00 (7-bar momentum -10.0%.). Net weighted score -0.29 clears the conviction bar at 29%, with news-briefing the main dissent — sized accordingly.",
+    "rationaleSource": "simulated",
+    "entryPrice": 61292.67859558102,
+    "status": "closed",
+    "source": "simulated",
+    "exitPrice": 61388.379614880985,
+    "pnlPct": -0.0015613776635773542
+  },
+  {
+    "id": "a0ec5df9-4b30-4a30-9ef5-b3cc939c49d6",
+    "timestamp": "2026-06-20T17:01:12.116Z",
+    "asset": "ETHUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.3104585199571348,
+        "confidence": 0.7960080167194856,
+        "adx": 39.80040083597428,
+        "volatility": 2.407458580475001,
+        "bandWidth": 0.08654890281774054,
+        "lastPrice": 3866.434798352624,
+        "source": "simulated",
+        "note": "ADX 40 (strong trend), ATR 2.41%, momentum 0.31."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 1,
+        "confidence": 0.9,
+        "note": "30-bar drift 13.2% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": 0.7195939186460101,
+        "confidence": 0.7597969593230051,
+        "note": "7-bar momentum 6.0%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": 0.35084211542701166,
+        "confidence": 0.4800632401177472,
+        "note": "Volume expanding 3% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": 0.6131325145547954,
+    "conviction": 0.6131325145547954,
+    "direction": "long",
+    "rationale": "Going long on ETHUSDT. The trending regime favors a trend-follow approach, and macro-analyst leads the consensus at 1.00 (30-bar drift 13.2% framed against a stable vol backdrop.). Net weighted score 0.61 clears the conviction bar at 61%, with technical-analysis the main dissent — sized accordingly.",
+    "rationaleSource": "simulated",
+    "entryPrice": 3866.434798352624,
+    "status": "closed",
+    "source": "simulated",
+    "exitPrice": 2902.9475245436124,
+    "pnlPct": -0.24919268630096275
+  },
+  {
+    "id": "c14db798-840b-47ef-8952-8616d7d29a57",
+    "timestamp": "2026-06-20T17:01:12.116Z",
+    "asset": "DOGEUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.2579225177680468,
+        "confidence": 0.5570817713378698,
+        "adx": 27.854088566893495,
+        "volatility": 4.236618236946213,
+        "bandWidth": 0.11714858110037595,
+        "lastPrice": 0.414748783900301,
+        "source": "simulated",
+        "note": "ADX 28 (strong trend), ATR 4.24%, momentum 0.26."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.43864953626018816,
+        "confidence": 0.7616909504995562,
+        "note": "30-bar drift 6.5% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": 1,
+        "confidence": 0.7889521082608634,
+        "note": "7-bar momentum 6.5% (meme beta amplified).",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": 0.32844420292471,
+        "confidence": 0.5191555295708583,
+        "note": "Volume fading -7% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": 0.5389768747285782,
+    "conviction": 0.5389768747285782,
+    "direction": "long",
+    "rationale": "Going long on DOGEUSDT. The trending regime favors a trend-follow approach, and sentiment-analyst leads the consensus at 1.00 (7-bar momentum 6.5% (meme beta amplified).). Net weighted score 0.54 clears the conviction bar at 54%, with technical-analysis the main dissent — sized accordingly.",
+    "rationaleSource": "simulated",
+    "entryPrice": 0.414748783900301,
+    "status": "closed",
+    "source": "simulated",
+    "exitPrice": 0.1871307418131839,
+    "pnlPct": -0.5488094261461002
+  },
+  {
+    "id": "f1c07cba-652f-403b-9b7e-1ee2a224873b",
+    "timestamp": "2026-06-20T17:01:06.083Z",
+    "asset": "BTCUSDT",
+    "regime": "unclear",
+    "strategy": "stay-flat",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.05470994549622494,
+        "confidence": 0.40899043326656503,
+        "adx": 20.44952166332825,
+        "volatility": 1.7993101130282123,
+        "bandWidth": 0.044201043461203945,
+        "lastPrice": 66827.0302168949,
+        "source": "simulated",
+        "note": "ADX 20 (mild trend), ATR 1.80%, momentum 0.05."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.21516878920499116,
+        "confidence": 0.5895912934722134,
+        "note": "30-bar drift -2.2% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.2502821807891251,
+        "confidence": 0.5251410903945626,
+        "note": "7-bar momentum -2.1%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.1508594909563463,
+        "confidence": 0.5181222798428424,
+        "note": "Volume fading -7% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": -0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": -0.22728322839708107,
+    "conviction": 0.22728322839708107,
+    "direction": "flat",
+    "rationale": "Holding BTCUSDT flat: the unclear regime selects a stay-flat posture, but the weighted consensus of -0.23 (conviction 23%) sits below the action threshold. technical-analysis (0.05) and news-briefing (-0.50) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 66827.0302168949,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "e37f1aee-0074-48dd-81bf-155cb395700a",
+    "timestamp": "2026-06-20T17:01:06.083Z",
+    "asset": "ETHUSDT",
+    "regime": "unclear",
+    "strategy": "stay-flat",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.1659296200108142,
+        "confidence": 0.4416104976271357,
+        "adx": 22.080524881356787,
+        "volatility": 2.100742265996524,
+        "bandWidth": 0.08685044669129145,
+        "lastPrice": 2938.5572660384373,
+        "source": "simulated",
+        "note": "ADX 22 (mild trend), ATR 2.10%, momentum -0.17."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.4562538528300344,
+        "confidence": 0.707119503755052,
+        "note": "30-bar drift -5.2% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.01694125476468985,
+        "confidence": 0.40847062738234496,
+        "note": "7-bar momentum -0.1%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": 0.03783758171081462,
+        "confidence": 0.5414870012020064,
+        "note": "Volume expanding 9% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": -0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": -0.2481733591140447,
+    "conviction": 0.2481733591140447,
+    "direction": "flat",
+    "rationale": "Holding ETHUSDT flat: the unclear regime selects a stay-flat posture, but the weighted consensus of -0.25 (conviction 25%) sits below the action threshold. market-intel (0.04) and news-briefing (-0.50) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 2938.5572660384373,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "2a17ee54-f529-472f-a2d0-ce3da97cf12d",
+    "timestamp": "2026-06-20T17:01:06.083Z",
+    "asset": "DOGEUSDT",
+    "regime": "unclear",
+    "strategy": "stay-flat",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.12290389244912225,
+        "confidence": 0.3389853500664198,
+        "adx": 16.94926750332099,
+        "volatility": 4.44936744094768,
+        "bandWidth": 0.07475126923105689,
+        "lastPrice": 0.13625755879564458,
+        "source": "simulated",
+        "note": "ADX 17 (no trend), ATR 4.45%, momentum -0.12."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.07547473722638853,
+        "confidence": 0.582231043022671,
+        "note": "30-bar drift 2.1% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.42130243040165294,
+        "confidence": 0.5316570095005165,
+        "note": "7-bar momentum -2.2% (meme beta amplified).",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.12651363134391683,
+        "confidence": 0.45726751162020285,
+        "note": "Volume fading -1% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": -0.0018526774772102427,
+    "conviction": 0.0018526774772102427,
+    "direction": "flat",
+    "rationale": "Holding DOGEUSDT flat: the unclear regime selects a stay-flat posture, but the weighted consensus of -0.00 (conviction 0%) sits below the action threshold. news-briefing (0.50) and sentiment-analyst (-0.42) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 0.13625755879564458,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "04619213-87af-419d-b585-7f3687b4f366",
+    "timestamp": "2026-06-20T17:00:59.932Z",
+    "asset": "BTCUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": -0.22521735982657526,
+        "confidence": 0.6238809305503016,
+        "adx": 31.19404652751508,
+        "volatility": 2.4008298571680813,
+        "bandWidth": 0.07880118919698287,
+        "lastPrice": 61005.82280799439,
+        "source": "simulated",
+        "note": "ADX 31 (strong trend), ATR 2.40%, momentum -0.23."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.39412369781818957,
+        "confidence": 0.673053550337414,
+        "note": "30-bar drift -4.3% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": 0.06677666289608303,
+        "confidence": 0.43338833144804156,
+        "note": "7-bar momentum 0.6%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": -0.025990335344708456,
+        "confidence": 0.5643055560590944,
+        "note": "Volume fading -11% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": -0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": -0.23430176034420758,
+    "conviction": 0.23430176034420758,
+    "direction": "flat",
+    "rationale": "Holding BTCUSDT flat: the trending regime selects a trend-follow posture, but the weighted consensus of -0.23 (conviction 23%) sits below the action threshold. sentiment-analyst (0.07) and news-briefing (-0.50) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 61005.82280799439,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "9b544ee2-eec8-40de-bb87-e623358193b8",
+    "timestamp": "2026-06-20T17:00:59.932Z",
+    "asset": "ETHUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.08622532199781702,
+        "confidence": 0.8511327061714915,
+        "adx": 42.55663530857458,
+        "volatility": 1.9049188273433124,
+        "bandWidth": 0.057729153786008285,
+        "lastPrice": 3141.3348051345765,
+        "source": "simulated",
+        "note": "ADX 43 (strong trend), ATR 1.90%, momentum 0.09."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": 0.027521812630402362,
+        "confidence": 0.5328100945886343,
+        "note": "30-bar drift 0.8% framed against a stable vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": 0.08233480124485815,
+        "confidence": 0.4411674006224291,
+        "note": "7-bar momentum 0.7%.",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": 0.08010615829548234,
+        "confidence": 0.5333665020957638,
+        "note": "Volume expanding 8% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": 0.15200481489399376,
+    "conviction": 0.15200481489399376,
+    "direction": "flat",
+    "rationale": "Holding ETHUSDT flat: the trending regime selects a trend-follow posture, but the weighted consensus of 0.15 (conviction 15%) sits below the action threshold. news-briefing (0.50) and macro-analyst (0.03) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 3141.3348051345765,
+    "status": "flat",
+    "source": "simulated"
+  },
+  {
+    "id": "4b58eb91-9a10-4f1c-a368-f67aca14dd7d",
+    "timestamp": "2026-06-20T17:00:59.932Z",
+    "asset": "DOGEUSDT",
+    "regime": "trending",
+    "strategy": "trend-follow",
+    "signals": [
+      {
+        "skill": "technical-analysis",
+        "score": 0.09900552431998991,
+        "confidence": 0.6514755678812864,
+        "adx": 32.57377839406432,
+        "volatility": 4.9701928209638995,
+        "bandWidth": 0.1432555322216928,
+        "lastPrice": 0.21117067238387643,
+        "source": "simulated",
+        "note": "ADX 33 (strong trend), ATR 4.97%, momentum 0.10."
+      },
+      {
+        "skill": "macro-analyst",
+        "score": -0.0895856299868593,
+        "confidence": 0.5049091132162093,
+        "note": "30-bar drift 0.1% framed against a risk-off vol backdrop.",
+        "source": "simulated"
+      },
+      {
+        "skill": "sentiment-analyst",
+        "score": -0.34160777282603516,
+        "confidence": 0.506752429008136,
+        "note": "7-bar momentum -1.8% (meme beta amplified).",
+        "source": "simulated"
+      },
+      {
+        "skill": "market-intel",
+        "score": 0.00270775158081811,
+        "confidence": 0.6546867039768234,
+        "note": "Volume expanding 20% vs prior window.",
+        "source": "simulated"
+      },
+      {
+        "skill": "news-briefing",
+        "score": 0.5,
+        "confidence": 0.55,
+        "note": "No outsized catalyst; defers to underlying drift.",
+        "source": "simulated"
+      }
+    ],
+    "weights": {
+      "macro-analyst": 0.2,
+      "sentiment-analyst": 0.2,
+      "technical-analysis": 0.2,
+      "market-intel": 0.2,
+      "news-briefing": 0.2
+    },
+    "weightedScore": 0.04286499013381021,
+    "conviction": 0.04286499013381021,
+    "direction": "flat",
+    "rationale": "Holding DOGEUSDT flat: the trending regime selects a trend-follow posture, but the weighted consensus of 0.04 (conviction 4%) sits below the action threshold. news-briefing (0.50) and sentiment-analyst (-0.34) disagree enough that standing aside is the higher-expectancy choice.",
+    "rationaleSource": "simulated",
+    "entryPrice": 0.21117067238387643,
+    "status": "flat",
+    "source": "simulated"
+  }
+]

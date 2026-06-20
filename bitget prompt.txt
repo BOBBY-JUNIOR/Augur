@@ -1,0 +1,106 @@
+PROJECT: Adaptive Consensus Trading Agent (Bitget AI Hackathon S1 — Trading Agent track)
+ 
+GOAL
+Build a full-stack AI trading agent that:
+1. Pulls live market perception from Bitget's 5 Skill Hub skills (macro-analyst, 
+   sentiment-analyst, technical-analysis, market-intel, news-briefing) for BTC, ETH, 
+   and one meme coin
+2. Classifies each asset's market regime (trending / ranging / unclear) from 
+   technical-analysis output
+3. Runs a weighted consensus vote across all 5 skills (bullish/bearish/neutral score 
+   each), with weights that adjust over time based on which skills' calls proved 
+   correct historically
+4. Picks a strategy mode per regime (trend-follow when trending, mean-revert when 
+   ranging, stay flat when unclear) and combines it with consensus conviction to 
+   decide direction
+5. Generates a natural-language rationale for every decision (use MuleRun API — 
+   sign up at mulerun.com, claim 2000 credits at credits.mule.page with code 
+   0526BITGET — call their chat completion endpoint, NOT OpenAI)
+6. Logs every decision (timestamp, asset, regime, skill scores, weights, direction, 
+   conviction, rationale, simulated entry price, simulated PnL on exit) as a 
+   paper-trading record — write to a JSON file committed to the repo so it's a 
+   public, verifiable usage/trading log
+7. Renders a live dashboard showing: current regime per asset, skill weight 
+   evolution over time (chart), decision feed with rationale, and cumulative 
+   simulated PnL
+ 
+SETUP STEPS
+1. Install getagent: npm install -g @bitget-ai/getagent-skill
+2. Install Bitget MCP: npx bitget-hub install --target codex
+3. Configure Bitget API keys as env vars (BITGET_API_KEY, BITGET_SECRET_KEY, 
+   BITGET_PASSPHRASE) — read/sim trade permissions only, no live trade permission
+4. Configure MuleRun API key as env var (MULERUN_API_KEY)
+5. Scaffold a Next.js 15 + TypeScript app (App Router, Tailwind)
+ 
+TECH STACK
+- Next.js 15 (App Router) + TypeScript
+- Tailwind CSS
+- Framer Motion for animation
+- Recharts for the weight-evolution and PnL charts
+- Bitget MCP / Skill Hub for all market perception (no other data source)
+- MuleRun API for rationale generation
+- Local JSON file (data/trades.json) as the trading log — committed to repo, no 
+  database needed
+- Vercel-deployable, zero external paid services
+ 
+DECISION ENGINE LOGIC
+- Each skill returns a score from -1 (bearish) to +1 (bullish) per asset
+- Maintain a weights object per skill, starting equal (0.2 each), persisted in 
+  data/weights.json
+- After each simulated trade closes, compare each skill's directional call against 
+  actual outcome; nudge that skill's weight up if correct, down if wrong (simple 
+  exponential moving average adjustment, clamp between 0.05 and 0.5, renormalize 
+  to sum to 1)
+- Regime detection: use technical-analysis indicators (e.g. ADX-style trend 
+  strength + volatility bands) to classify trending/ranging/unclear
+- Final signal = weighted sum of skill scores; threshold for action vs flat should 
+  be conservative — only act when |weighted score| crosses a meaningful threshold 
+  AND regime supports that strategy type
+- Every decision and its full reasoning must be logged even if the action is "flat"
+ 
+PAGES / STRUCTURE
+- / — landing/hero page explaining the agent's thesis in real copy (no lorem ipsum): 
+  what it does, why weighted consensus + regime-switching is a sound approach, why 
+  this is something only an AI Agent can do (continuous multi-source synthesis + 
+  self-correction)
+- /dashboard — live view: per-asset regime badges, skill weight chart over time, 
+  scrolling decision feed with timestamps + rationale, cumulative simulated PnL chart
+- /logs — raw paper trading log table (sortable), pulled from data/trades.json, 
+  this is the verifiable submission artifact
+- API routes: /api/run-cycle (triggers one perception→decision→log cycle, can be 
+  called by a cron or manually for demo), /api/trades (serves the log JSON)
+ 
+UI STYLE: Vercel/Linear-style dark UI with glassmorphism.
+- Background: near-black (#0a0a0a), subtle radial gradient glow (purple/blue/cyan) 
+  behind hero content, optional faint grid/noise texture
+- Cards/panels: bg-white/5 with backdrop-blur-xl, border border-white/10, soft inner 
+  glow on hover, rounded-2xl corners
+- Typography: large bold sans-serif headers (Inter/Geist-style), tight tracking, 
+  muted gray (text-gray-400) for body
+- Accent: one saturated color (cyan/violet/emerald) used sparingly — buttons, glow 
+  effects, gradient text on key words
+- Buttons: glass or gradient-bordered, subtle scale + glow on hover, 200ms transitions
+ 
+ANIMATION (Framer Motion):
+- Page load: staggered fade + slide-up (opacity 0→1, y: 20→0, 60-100ms stagger)
+- Scroll: fade/slide-in reveals via whileInView
+- Hover: cards scale 1.02 + glow intensifies, buttons get magnetic/lift effect
+- Use spring easing (type: "spring", stiffness: 300, damping: 30), not linear
+- Durations 200-500ms, nothing sluggish
+ 
+RULES: No lorem ipsum, write real copy. No generic template feel. Keep responsive.
+ 
+DELIVERABLES
+1. Working Next.js app with the structure above
+2. README.md with: project thesis (4-part structure — problem, approach, why an 
+   agent, what's novel), installation steps, how to run a perception cycle, how to 
+   read the trading log
+3. At least one full run-cycle executed and logged to data/trades.json before 
+   submission (real timestamps, real Skill Hub output, real MuleRun rationale — 
+   not mocked)
+4. Deploy to Vercel free tier, include live URL in README
+ 
+Build this step by step: scaffold first, wire up Bitget MCP calls and confirm real 
+data is returned, then build the decision engine, then the logging, then the UI 
+last. Show me the Skill Hub response shape before building the decision logic 
+against it.
