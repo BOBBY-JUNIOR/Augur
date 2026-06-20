@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal, RevealOnScroll } from "@/components/Reveal";
+import { Logo } from "@/components/Logo";
 
 const SKILLS = [
   { name: "Macro Analyst", role: "Slow-moving regime & risk backdrop" },
@@ -40,7 +41,20 @@ export default function Home() {
         <div className="bg-grid pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-20 sm:pt-28">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
+            <div className="flex items-center gap-3">
+              <Logo className="h-11 w-11" />
+              <div>
+                <div className="text-lg font-semibold tracking-tight text-white">
+                  Au<span className="text-gradient">gur</span>
+                </div>
+                <div className="text-xs text-gray-500">
+                  Reads the signs. Explains the call.
+                </div>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.04}>
+            <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 live-dot" />
               Bitget AI Hackathon S1 · Trading Agent Track
             </span>
