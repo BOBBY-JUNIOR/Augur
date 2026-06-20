@@ -3,14 +3,14 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 
 export const metadata: Metadata = {
-  title: "Adaptive Consensus Trading Agent",
+  title: "Augur — Multi-Signal Trading Agent",
   description:
-    "An AI trading agent that fuses five Bitget Skill Hub signals into a self-correcting weighted consensus, switches strategy by market regime, and logs every decision as a verifiable paper-trading record.",
+    "Augur reads five Bitget Skill Hub signals, fuses them into a self-correcting weighted consensus, switches strategy by market regime, and logs every decision as a verifiable paper-trading record. Reads the signs. Explains the call.",
   metadataBase: new URL("https://example.vercel.app"),
   openGraph: {
-    title: "Adaptive Consensus Trading Agent",
+    title: "Augur — Multi-Signal Trading Agent",
     description:
-      "Weighted multi-skill consensus + regime switching + self-correcting weights. Built on Bitget Skill Hub for the Bitget AI Hackathon.",
+      "Reads the signs. Explains the call. Weighted multi-skill consensus + regime switching + self-correcting weights, built on Bitget Skill Hub.",
     type: "website",
   },
 };

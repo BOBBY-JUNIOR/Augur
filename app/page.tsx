@@ -54,11 +54,13 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
-              The Adaptive Consensus Trading Agent fuses five Bitget Skill Hub
-              signals into a single conviction score, switches strategy by market
-              regime, explains every call in natural language, and self-corrects
-              the weight it gives each skill based on who has been right. BTC, ETH,
-              and a meme coin — paper-traded, fully logged, verifiable.
+              <span className="font-medium text-gray-200">Augur</span> reads the
+              signs and explains the call. It fuses five Bitget Skill Hub signals
+              into a single conviction score, switches strategy by market regime,
+              writes a natural-language rationale for every decision, and
+              self-corrects the weight it gives each skill based on who has been
+              right. BTC, ETH, and a meme coin — paper-traded, fully logged,
+              verifiable.
             </p>
           </Reveal>
           <Reveal delay={0.24}>

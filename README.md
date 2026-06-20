@@ -1,9 +1,11 @@
-# Adaptive Consensus Trading Agent
+# Augur
+
+### Reads the signs. Explains the call.
 
 **Bitget AI Hackathon S1 — Trading Agent track**
 
-An AI trading agent that consults **five Bitget Skill Hub skills** every cycle, fuses them into a
-single **confidence-weighted consensus vote**, switches strategy by **market regime**, explains every
+Augur is an AI trading agent that consults **five Bitget Skill Hub skills** every cycle, fuses them into
+a single **confidence-weighted consensus vote**, switches strategy by **market regime**, explains every
 decision in natural language via the **MuleRun API**, and **re-weights each skill based on how right it
 has been**. It paper-trades BTC, ETH, and a meme coin (DOGE), logging every decision — flat ones
 included — to a committed JSON file that serves as a public, verifiable trading record.

@@ -18,8 +18,8 @@ export function Nav() {
           <span className="relative flex h-2.5 w-2.5">
             <span className="live-dot absolute inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
           </span>
-          <span className="text-sm font-semibold tracking-tight text-white">
-            Consensus<span className="text-gradient">Agent</span>
+          <span className="text-base font-semibold tracking-tight text-white">
+            Au<span className="text-gradient">gur</span>
           </span>
         </Link>
         <nav className="flex items-center gap-1">

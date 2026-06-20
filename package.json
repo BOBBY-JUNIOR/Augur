@@ -1,8 +1,8 @@
 {
-  "name": "adaptive-consensus-trading-agent",
+  "name": "augur",
   "version": "1.0.0",
   "private": true,
-  "description": "Adaptive Consensus Trading Agent — Bitget AI Hackathon S1 (Trading Agent track)",
+  "description": "Augur — multi-signal consensus trading agent for the Bitget AI Hackathon S1 (Trading Agent track)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
