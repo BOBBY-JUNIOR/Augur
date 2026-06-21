@@ -85,7 +85,12 @@ export async function generateRationale(
 ): Promise<{ text: string; source: DataSource }> {
   const cfg = resolveProvider();
 
-  if (cfg.apiKey) {
+  if (!cfg.apiKey) {
+    console.warn(
+      `[llm] no API key for provider "${cfg.name}" — falling back to template. ` +
+        `Expected env var ${cfg.name === "mulerun" ? "MULERUN_API_KEY" : "GROQ_API_KEY"}.`
+    );
+  } else {
     try {
       const res = await fetch(`${cfg.baseUrl.replace(/\/$/, "")}/chat/completions`, {
         method: "POST",
@@ -111,9 +116,17 @@ export async function generateRationale(
         };
         const text = j.choices?.[0]?.message?.content?.trim();
         if (text) return { text, source: "live" };
+        console.warn(`[llm] ${cfg.name} ${cfg.model}: 200 OK but no content in response`);
+      } else {
+        const body = await res.text().catch(() => "");
+        console.warn(
+          `[llm] ${cfg.name} ${cfg.model} request failed: ${res.status} ${res.statusText} — ${body.slice(0, 300)}`
+        );
       }
-    } catch {
-      // fall through to deterministic template
+    } catch (err) {
+      console.warn(
+        `[llm] ${cfg.name} ${cfg.model} request threw: ${err instanceof Error ? err.message : String(err)}`
+      );
     }
   }
 
