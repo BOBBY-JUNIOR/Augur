@@ -1,15 +1,21 @@
-// ── MuleRun rationale generation ────────────────────────────────────────────
-// Calls MuleRun's chat completion endpoint (OpenAI-compatible shape, but a
-// different provider — NOT OpenAI). Falls back to a deterministic templated
-// rationale when no MULERUN_API_KEY is configured, flagged as simulated.
+// ── Rationale generation (provider-swappable LLM) ───────────────────────────
+// Primary provider is Groq (OpenAI-compatible chat completions). The provider is
+// selected by the LLM_PROVIDER env var, so MuleRun (or any OpenAI-compatible
+// endpoint) can be swapped in later without touching the calling code.
+//
+//   LLM_PROVIDER=groq      → api.groq.com,    GROQ_API_KEY,    llama-3.3-70b-versatile
+//   LLM_PROVIDER=mulerun   → api.mulerun.com, MULERUN_API_KEY, MULERUN_MODEL
+//
+// When the selected provider has no API key, a deterministic templated rationale
+// is returned and flagged source:"simulated".
 
 import type {
   AssetId,
+  DataSource,
   Direction,
   Regime,
   SkillSignal,
   StrategyMode,
-  DataSource,
 } from "./types";
 
 export interface RationaleInput {
@@ -21,6 +27,32 @@ export interface RationaleInput {
   conviction: number;
   signals: SkillSignal[];
   weights: Record<string, number>;
+}
+
+interface ProviderConfig {
+  name: string;
+  baseUrl: string;
+  apiKey: string | undefined;
+  model: string;
+}
+
+function resolveProvider(): ProviderConfig {
+  const provider = (process.env.LLM_PROVIDER ?? "groq").toLowerCase();
+  if (provider === "mulerun") {
+    return {
+      name: "mulerun",
+      baseUrl: process.env.MULERUN_BASE_URL ?? "https://api.mulerun.com/v1",
+      apiKey: process.env.MULERUN_API_KEY,
+      model: process.env.MULERUN_MODEL ?? "llama-3.3-70b-versatile",
+    };
+  }
+  // Default: Groq.
+  return {
+    name: "groq",
+    baseUrl: process.env.GROQ_BASE_URL ?? "https://api.groq.com/openai/v1",
+    apiKey: process.env.GROQ_API_KEY,
+    model: process.env.GROQ_MODEL ?? "llama-3.3-70b-versatile",
+  };
 }
 
 const SYSTEM_PROMPT =
@@ -51,20 +83,18 @@ function buildUserPrompt(i: RationaleInput): string {
 export async function generateRationale(
   input: RationaleInput
 ): Promise<{ text: string; source: DataSource }> {
-  const key = process.env.MULERUN_API_KEY;
-  const base = process.env.MULERUN_BASE_URL ?? "https://api.mulerun.com/v1";
-  const model = process.env.MULERUN_MODEL ?? "gpt-4o-mini";
+  const cfg = resolveProvider();
 
-  if (key) {
+  if (cfg.apiKey) {
     try {
-      const res = await fetch(`${base.replace(/\/$/, "")}/chat/completions`, {
+      const res = await fetch(`${cfg.baseUrl.replace(/\/$/, "")}/chat/completions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${key}`,
+          Authorization: `Bearer ${cfg.apiKey}`,
         },
         body: JSON.stringify({
-          model,
+          model: cfg.model,
           temperature: 0.5,
           max_tokens: 220,
           messages: [
@@ -83,7 +113,7 @@ export async function generateRationale(
         if (text) return { text, source: "live" };
       }
     } catch {
-      // fall through to template
+      // fall through to deterministic template
     }
   }
 

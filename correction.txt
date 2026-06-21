@@ -1,0 +1,93 @@
+TASK: Restyle and polish the existing Augur UI. This is a correction pass, not a 
+rebuild — keep all existing functionality, data, routes, and components intact. 
+Only touch styling, layout, spacing, and visual hierarchy.
+
+CURRENT PROBLEM: The UI looks generic — default glassmorphism dark-mode template 
+feel, inconsistent spacing, no real visual identity. Fix this.
+
+NEW DESIGN DIRECTION: "War room" editorial-terminal hybrid — NOT glassmorphism, 
+NOT generic SaaS dark mode, NOT rounded glowing cards.
+
+COLOR SYSTEM (replace existing palette entirely):
+- Background: deep warm oxblood/maroon-black #1a0e0e (not pure black, not gray)
+- Primary accent: warm amber/gold #d4a05c — headlines, key numbers, CTAs, active states
+- Secondary accent: muted rust/terracotta #c4633a — status tags, warnings, alerts
+- Heading text: warm off-white #f0e8e0
+- Body text: warm muted gray #a89890
+- Borders: thin warm-gray, low opacity, e.g. rgba(168,152,144,0.15)
+- Remove ALL backdrop-blur, glow effects, and soft box-shadows. No exceptions.
+
+TYPOGRAPHY:
+- Headline/display font: serif with italic variant — use "Fraunces" from Google 
+  Fonts (or "Source Serif 4" / "Lora" as fallback). Large, confident sizing. Use 
+  italic styling on single emphasis words within key headlines.
+- Label/UI font: monospace — "JetBrains Mono" or "IBM Plex Mono". ALL CAPS, 
+  letter-spacing 0.05-0.1em. Use for: section eyebrows, status badges, panel 
+  headers, data labels, table headers, timestamps.
+- Body font: clean sans-serif (Inter is fine here), muted color, line-height 1.6+
+
+LAYOUT & SPACING (this is the main fix needed):
+- Establish a consistent spacing scale (e.g. 4/8/16/24/32/48/64/96px) and apply 
+  it uniformly — audit every section for inconsistent padding/margin and 
+  normalize to this scale
+- All cards/panels: sharp or barely-rounded corners (2-4px max), thin 1px solid 
+  border, NO shadow, NO blur, NO inner glow
+- Align all text blocks to a consistent left edge per section — fix any ragged 
+  or inconsistent indentation
+- Ensure consistent vertical rhythm between sections (equal breathing room above/
+  below each major block)
+- Two-column sections should have matching vertical alignment between left text 
+  content and right panel — check this isn't currently offset
+- Numbers/stats should be large serif numerals with mono label underneath, 
+  consistently sized and aligned across all instances (dashboard stats, vault-
+  style displays, PnL figures)
+- Status badges/tags: consistent padding, consistent corner radius, consistent 
+  font size across every place they appear (dashboard, decision feed, logs table)
+- Tables (the trading log) should have clean aligned columns, consistent row 
+  height, mono font for numeric/timestamp columns, clear header row distinction
+
+COMPONENT-SPECIFIC FIXES:
+- "Live decision room" panel: style as a terminal/chat log — agent handles 
+  (@macro-analyst, @sentiment-analyst, @technical-analysis, @market-intel, 
+  @news-briefing) each on their own line, signal/score inline, status tags like 
+  [BULLISH] [BEARISH] [FLAT] [REGIME: TRENDING] in mono caps with the rust/amber 
+  accent colors
+- Comparison blocks (if any "before/after" or "old way/Augur way" sections exist): 
+  side-by-side with a clean dividing line, not separate floating cards
+- Buttons: flat or thin-bordered, no gradient fill, no scale-bounce on hover — 
+  use a subtle color shift or underline-reveal instead
+- Charts (weight evolution, PnL): restyle to match the palette — amber/rust line 
+  colors on the oxblood background, mono axis labels, remove any default 
+  chart-library styling that clashes (rounded tooltips, drop shadows, etc.)
+
+ANIMATION: Keep minimal and restrained — fade + slight slide-up on scroll reveal 
+only (150-250ms, ease-out, not spring/bounce). No hover scale, no glow pulse, 
+except: status tags marking "live" state can have a subtle opacity pulse.
+
+COPY: Where existing copy sounds like generic AI-template language ("leverages 
+multiple data sources," "cutting-edge AI agent," etc.), rewrite to short, 
+declarative, confident sentences reflecting the actual mechanism — e.g. "Five 
+signals. One vote. No emotion." Keep all real data/functionality references accurate.
+
+PROCESS: 
+1. First, list every component/page in the app and identify current spacing/
+   color inconsistencies before changing anything
+2. Apply the color and font system globally first (theme/CSS variables level)
+3. Then go section by section fixing spacing and alignment
+4. Show me a before/after summary of what changed in each file
+
+Do not break any existing functionality, API calls, or data flow — this is a 
+visual-only pass.
+
+LLM PROVIDER: Use Groq as the primary LLM for generating trade rationales 
+(MuleRun application is pending approval, not guaranteed in time).
+
+- Sign up at console.groq.com, create an API key, store as GROQ_API_KEY
+- Endpoint: https://api.groq.com/openai/v1/chat/completions (OpenAI-compatible)
+- Model: llama-3.3-70b-versatile
+- Same chat completion call pattern as OpenAI — just swap base URL, model name, 
+  and auth header to use GROQ_API_KEY
+
+Structure the rationale-generation function so the provider is swappable via env 
+var (e.g. LLM_PROVIDER=groq or LLM_PROVIDER=mulerun) — if MuleRun approval comes 
+through later, it can be added without rewriting the calling code.

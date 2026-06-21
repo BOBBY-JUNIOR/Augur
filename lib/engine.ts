@@ -7,7 +7,7 @@ import crypto from "node:crypto";
 import { gatherSignals, getCandles } from "./bitget";
 import { clamp } from "./indicators";
 import { ACTION_THRESHOLD, decide } from "./consensus";
-import { generateRationale } from "./mulerun";
+import { generateRationale } from "./llm";
 import { classifyRegime, strategyForRegime } from "./regime";
 import {
   readMarket,

@@ -3,109 +3,101 @@ import { Reveal, RevealOnScroll } from "@/components/Reveal";
 import { Logo } from "@/components/Logo";
 
 const SKILLS = [
-  { name: "Macro Analyst", role: "Slow-moving regime & risk backdrop" },
-  { name: "Sentiment Analyst", role: "Crowd positioning & reflexive momentum" },
-  { name: "Technical Analysis", role: "Trend strength, volatility, structure" },
-  { name: "Market Intel", role: "Order flow & volume confirmation" },
-  { name: "News Briefing", role: "Catalysts & headline-driven reversals" },
+  ["@macro-analyst", "Slow regime & risk backdrop"],
+  ["@sentiment-analyst", "Crowd positioning & momentum"],
+  ["@technical-analysis", "Trend strength, volatility, structure"],
+  ["@market-intel", "Order flow & volume confirmation"],
+  ["@news-briefing", "Catalysts & headline reversals"],
 ];
 
 const THESIS = [
   {
-    tag: "Problem",
-    title: "One model, one lens, one blind spot",
-    body: "Most automated strategies commit to a single view of the market — a momentum rule, a mean-reversion band, one model's opinion. That works until the regime changes underneath it. A trend system bleeds in chop; a fade system gets run over in a breakout. The market is not one thing, and no single signal is right across all of them.",
+    tag: "01 — Problem",
+    title: "One lens, one blind spot",
+    body: "A momentum rule bleeds in chop. A fade system gets run over in a breakout. Markets change regime underneath a fixed strategy, and no single signal is right across all of them.",
   },
   {
-    tag: "Approach",
-    title: "Five signals, one weighted vote, switched by regime",
-    body: "This agent consults five Bitget Skill Hub skills every cycle, each scoring an asset from -1 (bearish) to +1 (bullish). It first classifies the regime from technical structure — trending, ranging, or unclear — then runs a confidence-weighted consensus vote. Trend-follow when trending, mean-revert when ranging, stand flat when unclear. Direction only fires when conviction clears a deliberately conservative threshold.",
+    tag: "02 — Approach",
+    title: "Read the regime, then vote",
+    body: "Five skills score each asset from −1 to +1. Augur classifies the regime first — trending, ranging, or unclear — then takes a confidence-weighted vote. Trend-follow when trending. Mean-revert when ranging. Flat when unclear.",
   },
   {
-    tag: "Why an agent",
-    title: "Continuous synthesis no static script can do",
-    body: "Fusing five independent perception streams, re-classifying the regime, re-weighting the vote, writing a defensible rationale, and logging it — every cycle, across three assets — is a synthesis task, not a rule. It needs a system that perceives broadly and reasons over the combination in natural language. That is agent-shaped work, not a backtest formula.",
+    tag: "03 — Why an agent",
+    title: "Judgment, not a formula",
+    body: "Synthesizing five live signals, re-reading the regime, re-weighting the vote, and writing the reasoning — every cycle, across three assets — is continuous judgment. It cannot be hard-coded into one rule.",
   },
   {
-    tag: "What's novel",
-    title: "It grades its own sources and re-weights them",
-    body: "After every simulated trade closes, the agent checks each skill's call against what price actually did and nudges that skill's weight up or down — an exponential adjustment, clamped and renormalized. Skills that prove right earn more of the vote; skills that prove wrong lose it. The committee that decides tomorrow is shaped by who was right yesterday. Every decision, flat ones included, is logged to a public JSON file.",
+    tag: "04 — What's novel",
+    title: "It grades its own sources",
+    body: "After every trade closes, each skill's call is checked against the move and its weight is nudged up or down. The committee that votes tomorrow is shaped by who was right yesterday.",
   },
+];
+
+const CYCLE = [
+  ["Perceive", "Pull five skill scores for BTC, ETH, and the meme coin."],
+  ["Classify", "Read ADX trend strength and volatility into a regime label."],
+  ["Vote", "Weight each score by the skill's learned weight and confidence."],
+  ["Decide", "Trend-follow, mean-revert, or stay flat past a conservative bar."],
+  ["Explain", "Write a natural-language rationale via Groq."],
+  ["Learn", "Log it; on close, re-weight every skill by its accuracy."],
 ];
 
 export default function Home() {
   return (
-    <main className="bg-aurora">
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="bg-grid pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-20 sm:pt-28">
+    <main className="bg-warroom">
+      {/* ── Hero ── */}
+      <section className="bg-rule border-b border-line">
+        <div className="mx-auto max-w-6xl px-6 pb-24 pt-16">
           <Reveal>
             <div className="flex items-center gap-3">
-              <Logo className="h-11 w-11" />
-              <div>
-                <div className="text-lg font-semibold tracking-tight text-white">
-                  Au<span className="text-gradient">gur</span>
-                </div>
-                <div className="text-xs text-gray-500">
-                  Reads the signs. Explains the call.
-                </div>
-              </div>
+              <Logo className="h-9 w-9" />
+              <span className="font-display text-xl text-cream">Augur</span>
             </div>
           </Reveal>
-          <Reveal delay={0.04}>
-            <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-gray-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 live-dot" />
-              Bitget AI Hackathon S1 · Trading Agent Track
-            </span>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mt-6 max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
-              An agent that takes a{" "}
-              <span className="text-gradient">weighted vote</span> of five market
-              minds — and re-grades them as it learns.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-400">
-              <span className="font-medium text-gray-200">Augur</span> reads the
-              signs and explains the call. It fuses five Bitget Skill Hub signals
-              into a single conviction score, switches strategy by market regime,
-              writes a natural-language rationale for every decision, and
-              self-corrects the weight it gives each skill based on who has been
-              right. BTC, ETH, and a meme coin — paper-traded, fully logged,
-              verifiable.
+
+          <Reveal delay={0.05}>
+            <p className="eyebrow mt-12">
+              Bitget AI Hackathon S1 · Trading Agent
             </p>
           </Reveal>
-          <Reveal delay={0.24}>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Link
-                href="/dashboard"
-                className="glass-hover rounded-xl border border-cyan-400/40 bg-cyan-400/10 px-5 py-2.5 text-sm font-medium text-cyan-200 hover:scale-[1.02]"
-              >
-                Open live dashboard →
+
+          <Reveal delay={0.1}>
+            <h1 className="display mt-5 max-w-4xl text-5xl leading-[1.05] sm:text-7xl">
+              Five signals. One <em>vote</em>. No emotion.
+            </h1>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-mute">
+              Augur reads five Bitget Skill Hub signals, weights each one by how
+              right it has been, switches strategy with the market regime, and
+              writes the reasoning behind every call. BTC, ETH, and a meme coin —
+              paper-traded, fully logged, verifiable.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <Link href="/dashboard" className="btn btn-primary">
+                Open the war room
               </Link>
-              <Link
-                href="/logs"
-                className="glass glass-hover rounded-xl px-5 py-2.5 text-sm font-medium text-gray-200 hover:scale-[1.02]"
-              >
-                Inspect the trade log
+              <Link href="/logs" className="btn">
+                Read the trade log
               </Link>
             </div>
           </Reveal>
 
-          {/* Skill row */}
-          <Reveal delay={0.32}>
-            <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-              {SKILLS.map((s) => (
-                <div
-                  key={s.name}
-                  className="glass glass-hover rounded-2xl p-4"
-                >
-                  <div className="text-sm font-semibold text-white">{s.name}</div>
-                  <div className="mt-1 text-xs leading-snug text-gray-400">
-                    {s.role}
-                  </div>
+          {/* Stat strip */}
+          <Reveal delay={0.25}>
+            <div className="mt-16 grid max-w-2xl grid-cols-3 gap-px overflow-hidden border border-line bg-line">
+              {[
+                ["5", "Skills voting"],
+                ["3", "Assets watched"],
+                ["100%", "Decisions logged"],
+              ].map(([n, l]) => (
+                <div key={l} className="bg-oxblood px-5 py-6">
+                  <div className="stat-num text-4xl text-amber">{n}</div>
+                  <div className="eyebrow mt-2">{l}</div>
                 </div>
               ))}
             </div>
@@ -113,68 +105,127 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Thesis */}
-      <section className="mx-auto max-w-6xl px-5 pb-12">
+      {/* ── Skill roster ── */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
         <RevealOnScroll>
-          <h2 className="text-sm font-medium uppercase tracking-widest text-gray-500">
-            The thesis
-          </h2>
+          <p className="eyebrow">The committee</p>
+          <h2 className="display mt-3 text-3xl">Five skills, one ballot</h2>
         </RevealOnScroll>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {THESIS.map((t, i) => (
-            <RevealOnScroll key={t.tag} delay={i * 0.06}>
-              <article className="glass glass-hover h-full rounded-2xl p-6">
-                <span className="text-xs font-semibold uppercase tracking-wider text-cyan-300">
-                  {t.tag}
+        <div className="mt-8 border-t border-line">
+          {SKILLS.map(([handle, role], i) => (
+            <RevealOnScroll key={handle} delay={i * 0.04}>
+              <div className="flex flex-col gap-1 border-b border-line py-5 sm:flex-row sm:items-baseline sm:gap-8">
+                <span className="mono w-64 shrink-0 text-sm text-amber">
+                  {handle}
                 </span>
-                <h3 className="mt-2 text-xl font-semibold tracking-tight text-white">
-                  {t.title}
+                <span className="text-mute">{role}</span>
+              </div>
+            </RevealOnScroll>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Old way / Augur way comparison ── */}
+      <section className="border-y border-line bg-oxblood-2">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <RevealOnScroll>
+            <p className="eyebrow">The difference</p>
+          </RevealOnScroll>
+          <div className="mt-8 grid gap-px sm:grid-cols-2">
+            <RevealOnScroll>
+              <div className="h-full pr-0 sm:border-r sm:border-line sm:pr-12">
+                <h3 className="font-display text-2xl italic text-faint">
+                  The old way
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-400">
-                  {t.body}
-                </p>
+                <ul className="mt-6 space-y-4 text-mute">
+                  {[
+                    "Single strategy, fixed assumptions.",
+                    "Same logic in every market.",
+                    "One opinion, never re-checked.",
+                    "Silent when it's wrong.",
+                  ].map((t) => (
+                    <li key={t} className="flex gap-3">
+                      <span className="mono text-faint">—</span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </RevealOnScroll>
+            <RevealOnScroll delay={0.08}>
+              <div className="h-full pt-10 sm:pl-12 sm:pt-0">
+                <h3 className="font-display text-2xl italic text-amber">
+                  The Augur way
+                </h3>
+                <ul className="mt-6 space-y-4 text-cream">
+                  {[
+                    "Five signals, weighted by track record.",
+                    "Strategy switches with the regime.",
+                    "Sources graded after every close.",
+                    "Every call logged with its reasoning.",
+                  ].map((t) => (
+                    <li key={t} className="flex gap-3">
+                      <span className="mono text-amber">+</span>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Thesis ── */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <RevealOnScroll>
+          <p className="eyebrow">The thesis</p>
+        </RevealOnScroll>
+        <div className="mt-8 grid gap-px border border-line bg-line sm:grid-cols-2">
+          {THESIS.map((t, i) => (
+            <RevealOnScroll key={t.tag} delay={i * 0.05}>
+              <article className="h-full bg-oxblood p-8">
+                <p className="eyebrow text-amber">{t.tag}</p>
+                <h3 className="display mt-4 text-2xl">{t.title}</h3>
+                <p className="mt-3 leading-relaxed text-mute">{t.body}</p>
               </article>
             </RevealOnScroll>
           ))}
         </div>
       </section>
 
-      {/* How a cycle runs */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <RevealOnScroll>
-          <div className="glass rounded-2xl p-7">
-            <h2 className="text-xl font-semibold tracking-tight text-white">
-              What happens in one cycle
+      {/* ── One cycle ── */}
+      <section className="border-t border-line bg-oxblood-2">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <RevealOnScroll>
+            <p className="eyebrow">One cycle</p>
+            <h2 className="display mt-3 text-3xl">
+              Perceive, decide, log, <em>learn</em>
             </h2>
-            <ol className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                ["Perceive", "Pull all five skill scores for BTC, ETH, and the meme coin from the Skill Hub."],
-                ["Classify regime", "Read ADX-style trend strength + volatility bands to label trending / ranging / unclear."],
-                ["Weighted vote", "Combine scores by each skill's learned weight and confidence into one conviction number."],
-                ["Decide", "Trend-follow, mean-revert, or stay flat — only acting past a conservative threshold."],
-                ["Explain", "Generate a natural-language rationale for the call via the MuleRun API."],
-                ["Log & learn", "Write the decision to data/trades.json; on close, re-weight every skill by its accuracy."],
-              ].map(([h, b], i) => (
-                <li key={h} className="flex gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs text-cyan-300">
-                    {i + 1}
+          </RevealOnScroll>
+          <div className="mt-10 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+            {CYCLE.map(([h, b], i) => (
+              <RevealOnScroll key={h} delay={i * 0.04}>
+                <div className="h-full bg-oxblood p-6">
+                  <span className="mono text-xs text-amber">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div>
-                    <div className="text-sm font-medium text-white">{h}</div>
-                    <div className="text-sm leading-snug text-gray-400">{b}</div>
-                  </div>
-                </li>
-              ))}
-            </ol>
+                  <div className="mt-3 font-display text-lg text-cream">{h}</div>
+                  <div className="mt-1 text-sm leading-snug text-mute">{b}</div>
+                </div>
+              </RevealOnScroll>
+            ))}
           </div>
-        </RevealOnScroll>
+        </div>
       </section>
 
-      <footer className="border-t border-white/5 py-10">
-        <div className="mx-auto max-w-6xl px-5 text-sm text-gray-500">
-          Built on Bitget Skill Hub · rationale by MuleRun · paper-traded, no live
-          execution. Every decision logged to{" "}
-          <code className="text-gray-400">data/trades.json</code>.
+      <footer className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <p className="text-sm text-faint">
+            Built on Bitget Skill Hub · rationale by Groq · paper-traded, no live
+            execution. Every decision logged to{" "}
+            <span className="mono text-mute">data/trades.json</span>.
+          </p>
         </div>
       </footer>
     </main>

@@ -11,6 +11,22 @@ import {
 import { SKILL_META } from "@/lib/ui";
 import { SKILLS, type WeightSnapshot } from "@/lib/types";
 
+export const axisTick = {
+  fill: "#7a6c66",
+  fontSize: 10,
+  fontFamily: "var(--font-mono)",
+};
+
+export const tooltipStyle = {
+  background: "#150b0b",
+  border: "1px solid rgba(168,152,144,0.28)",
+  borderRadius: 2,
+  fontSize: 11,
+  fontFamily: "var(--font-mono)",
+  color: "#f0e8e0",
+  boxShadow: "none",
+};
+
 export function WeightChart({ history }: { history: WeightSnapshot[] }) {
   const data = history.map((h, i) => ({
     idx: i + 1,
@@ -20,22 +36,20 @@ export function WeightChart({ history }: { history: WeightSnapshot[] }) {
   }));
 
   if (data.length === 0) {
-    return (
-      <Empty msg="No weight history yet — run a few cycles to watch the committee re-weight." />
-    );
+    return <Empty msg="No weight history yet — run a few cycles to watch the committee re-weight." />;
   }
 
   return (
-    <ResponsiveContainer width="100%" height={260}>
+    <ResponsiveContainer width="100%" height={248}>
       <LineChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: -18 }}>
         <XAxis
           dataKey="idx"
-          tick={{ fill: "#6b7280", fontSize: 11 }}
-          axisLine={{ stroke: "rgba(255,255,255,0.08)" }}
+          tick={axisTick}
+          axisLine={{ stroke: "rgba(168,152,144,0.15)" }}
           tickLine={false}
         />
         <YAxis
-          tick={{ fill: "#6b7280", fontSize: 11 }}
+          tick={axisTick}
           axisLine={false}
           tickLine={false}
           unit="%"
@@ -43,11 +57,12 @@ export function WeightChart({ history }: { history: WeightSnapshot[] }) {
         />
         <Tooltip
           contentStyle={tooltipStyle}
+          cursor={{ stroke: "rgba(168,152,144,0.2)" }}
           formatter={(v: number, k: string) => [
             `${v}%`,
             SKILL_META[k as keyof typeof SKILL_META]?.label ?? k,
           ]}
-          labelFormatter={(l) => `Update #${l}`}
+          labelFormatter={(l) => `UPDATE ${l}`}
         />
         {SKILLS.map((s) => (
           <Line
@@ -55,7 +70,7 @@ export function WeightChart({ history }: { history: WeightSnapshot[] }) {
             type="monotone"
             dataKey={s}
             stroke={SKILL_META[s].color}
-            strokeWidth={2}
+            strokeWidth={1.6}
             dot={false}
             isAnimationActive={false}
           />
@@ -65,17 +80,9 @@ export function WeightChart({ history }: { history: WeightSnapshot[] }) {
   );
 }
 
-export const tooltipStyle = {
-  background: "rgba(10,10,10,0.92)",
-  border: "1px solid rgba(255,255,255,0.12)",
-  borderRadius: 12,
-  fontSize: 12,
-  color: "#e5e7eb",
-};
-
 export function Empty({ msg }: { msg: string }) {
   return (
-    <div className="flex h-[260px] items-center justify-center px-6 text-center text-sm text-gray-500">
+    <div className="flex h-[248px] items-center justify-center px-6 text-center text-sm text-faint">
       {msg}
     </div>
   );

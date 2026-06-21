@@ -1,13 +1,13 @@
 {
   "weights": {
-    "macro-analyst": 0.1730962939982879,
-    "sentiment-analyst": 0.14223853063871575,
-    "technical-analysis": 0.23499400914256735,
-    "market-intel": 0.17024691818446205,
-    "news-briefing": 0.279424248035967
+    "macro-analyst": 0.13608345162487262,
+    "sentiment-analyst": 0.16932609932266612,
+    "technical-analysis": 0.21715277782567233,
+    "market-intel": 0.22092572665937574,
+    "news-briefing": 0.25651194456741305
   },
-  "updates": 18,
-  "updatedAt": "2026-06-20T17:39:55.148Z",
+  "updates": 20,
+  "updatedAt": "2026-06-21T16:43:48.595Z",
   "history": [
     {
       "t": "2026-06-20T17:28:32.692Z",
@@ -150,6 +150,17 @@
         "technical-analysis": 0.23499400914256735,
         "market-intel": 0.17024691818446205,
         "news-briefing": 0.279424248035967
+      }
+    },
+    {
+      "t": "2026-06-21T16:43:48.595Z",
+      "updates": 20,
+      "weights": {
+        "macro-analyst": 0.13608345162487262,
+        "sentiment-analyst": 0.16932609932266612,
+        "technical-analysis": 0.21715277782567233,
+        "market-intel": 0.22092572665937574,
+        "news-briefing": 0.25651194456741305
       }
     }
   ]

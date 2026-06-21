@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
-const spring = { type: "spring" as const, stiffness: 300, damping: 30 };
+// Restrained editorial reveal: fade + slight slide-up, ease-out, no spring/bounce.
+const ease = [0.22, 0.61, 0.36, 1] as const;
 
-/** Staggered fade + slide-up on mount. */
 export function Reveal({
   children,
   delay = 0,
@@ -17,9 +17,9 @@ export function Reveal({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ ...spring, delay }}
+      transition={{ duration: 0.22, ease, delay }}
       className={className}
     >
       {children}
@@ -27,7 +27,6 @@ export function Reveal({
   );
 }
 
-/** Fade + slide-in when scrolled into view. */
 export function RevealOnScroll({
   children,
   delay = 0,
@@ -39,10 +38,10 @@ export function RevealOnScroll({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ ...spring, delay }}
+      transition={{ duration: 0.25, ease, delay }}
       className={className}
     >
       {children}

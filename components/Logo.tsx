@@ -21,9 +21,8 @@ export function Logo({ className = "h-6 w-6" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="augurGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#22d3ee" />
-          <stop offset="60%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#f0abfc" />
+          <stop offset="0%" stopColor="#d4a05c" />
+          <stop offset="100%" stopColor="#c4633a" />
         </linearGradient>
       </defs>
 

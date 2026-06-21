@@ -1,12 +1,15 @@
-// Shared presentation helpers + skill/asset theming for the UI layer.
+// Shared presentation helpers + skill/asset theming for the war-room UI.
 import type { Direction, Regime, SkillId } from "./types";
 
+export type Tone = "amber" | "rust" | "mute";
+
+// Warm, on-palette line colors for the 5 skills (charts + legends).
 export const SKILL_META: Record<SkillId, { label: string; color: string }> = {
-  "macro-analyst": { label: "Macro", color: "#22d3ee" },
-  "sentiment-analyst": { label: "Sentiment", color: "#8b5cf6" },
-  "technical-analysis": { label: "Technical", color: "#34d399" },
-  "market-intel": { label: "Market Intel", color: "#f59e0b" },
-  "news-briefing": { label: "News", color: "#f472b6" },
+  "macro-analyst": { label: "Macro", color: "#d4a05c" },
+  "sentiment-analyst": { label: "Sentiment", color: "#c4633a" },
+  "technical-analysis": { label: "Technical", color: "#e7c896" },
+  "market-intel": { label: "Market Intel", color: "#9c5a3c" },
+  "news-briefing": { label: "News", color: "#cf8a52" },
 };
 
 export const ASSET_LABEL: Record<string, string> = {
@@ -15,29 +18,42 @@ export const ASSET_LABEL: Record<string, string> = {
   DOGEUSDT: "DOGE",
 };
 
-export const REGIME_STYLE: Record<Regime, { label: string; cls: string; dot: string }> = {
-  trending: {
-    label: "Trending",
-    cls: "text-emerald-300 border-emerald-400/30 bg-emerald-400/10",
-    dot: "#34d399",
-  },
-  ranging: {
-    label: "Ranging",
-    cls: "text-amber-300 border-amber-400/30 bg-amber-400/10",
-    dot: "#f59e0b",
-  },
-  unclear: {
-    label: "Unclear",
-    cls: "text-gray-300 border-white/15 bg-white/5",
-    dot: "#9ca3af",
-  },
+export const REGIME_META: Record<Regime, { label: string; tone: Tone; dot: string }> = {
+  trending: { label: "Trending", tone: "amber", dot: "#d4a05c" },
+  ranging: { label: "Ranging", tone: "rust", dot: "#c4633a" },
+  unclear: { label: "Unclear", tone: "mute", dot: "#7a6c66" },
 };
 
-export const DIRECTION_STYLE: Record<Direction, { label: string; cls: string }> = {
-  long: { label: "LONG", cls: "text-emerald-300 bg-emerald-400/10 border-emerald-400/30" },
-  short: { label: "SHORT", cls: "text-rose-300 bg-rose-400/10 border-rose-400/30" },
-  flat: { label: "FLAT", cls: "text-gray-400 bg-white/5 border-white/15" },
+export const DIRECTION_META: Record<Direction, { label: string; tone: Tone }> = {
+  long: { label: "Long", tone: "amber" },
+  short: { label: "Short", tone: "rust" },
+  flat: { label: "Flat", tone: "mute" },
 };
+
+/** Map a tone to the shared `.tag` class set. */
+export function tagClass(tone: Tone): string {
+  return tone === "amber"
+    ? "tag tag-amber"
+    : tone === "rust"
+      ? "tag tag-rust"
+      : "tag tag-mute";
+}
+
+export function toneText(tone: Tone): string {
+  return tone === "amber" ? "text-amber" : tone === "rust" ? "text-rust" : "text-faint";
+}
+
+/** Bull / bear / neutral label for a skill score, with its tone. */
+export function scoreVerdict(score: number): { label: string; tone: Tone } {
+  if (score > 0.15) return { label: "BULLISH", tone: "amber" };
+  if (score < -0.15) return { label: "BEARISH", tone: "rust" };
+  return { label: "NEUTRAL", tone: "mute" };
+}
+
+export function pnlColor(n: number | undefined): string {
+  if (n == null) return "text-faint";
+  return n >= 0 ? "text-amber" : "text-rust";
+}
 
 export function fmtPct(n: number | undefined, digits = 2): string {
   if (n == null) return "—";

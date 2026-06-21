@@ -6,7 +6,7 @@
 
 Augur is an AI trading agent that consults **five Bitget Skill Hub skills** every cycle, fuses them into
 a single **confidence-weighted consensus vote**, switches strategy by **market regime**, explains every
-decision in natural language via the **MuleRun API**, and **re-weights each skill based on how right it
+decision in natural language via the **Groq API**, and **re-weights each skill based on how right it
 has been**. It paper-trades BTC, ETH, and a meme coin (DOGE), logging every decision — flat ones
 included — to a committed JSON file that serves as a public, verifiable trading record.
 
@@ -49,7 +49,7 @@ right yesterday.
 2. **Classify regime** — ADX-style trend strength + ATR/Bollinger volatility → trending / ranging / unclear (`lib/regime.ts`).
 3. **Weighted vote** — combine scores by each skill's learned weight × confidence into one conviction number (`lib/consensus.ts`).
 4. **Decide** — trend-follow / mean-revert / stay-flat, only acting past the conservative threshold.
-5. **Explain** — generate a natural-language rationale via MuleRun (`lib/mulerun.ts`).
+5. **Explain** — generate a natural-language rationale via Groq (`lib/llm.ts`, provider-swappable).
 6. **Log & learn** — append the decision to `data/trades.json`; on close, re-weight every skill by its accuracy (`lib/engine.ts`).
 
 ---
@@ -74,7 +74,7 @@ and network access — no code changes.
 ## Tech stack
 
 Next.js 15 (App Router) · TypeScript · Tailwind v4 (glassmorphism) · Framer Motion · Recharts ·
-Bitget Skill Hub / public market API · MuleRun (rationale) · local JSON files as the trading log ·
+Bitget Skill Hub / public market API · Groq (rationale, provider-swappable) · local JSON files as the trading log ·
 Vercel-deployable, zero paid services.
 
 ---
@@ -99,8 +99,9 @@ npx bitget-hub install --target codex      # Bitget MCP
 | --- | --- |
 | `BITGET_API_KEY` / `BITGET_SECRET_KEY` / `BITGET_PASSPHRASE` | Bitget auth (**read / sim-trade only — no live-trade permission**). |
 | `BITGET_SKILLHUB_URL` | Skill Hub gateway base URL. Unset → derived-signal fallback. |
-| `MULERUN_API_KEY` | MuleRun rationale generation. Sign up at [mulerun.com](https://mulerun.com), claim 2000 credits at [credits.mule.page](https://credits.mule.page) with code **`0526BITGET`**. |
-| `MULERUN_BASE_URL` / `MULERUN_MODEL` | Defaults `https://api.mulerun.com/v1` and `gpt-4o-mini`. |
+| `LLM_PROVIDER` | Rationale backend: `groq` (default) or `mulerun`. Swappable without code changes. |
+| `GROQ_API_KEY` | Groq rationale generation (primary). Sign up at [console.groq.com](https://console.groq.com). OpenAI-compatible; default model `llama-3.3-70b-versatile`. |
+| `MULERUN_API_KEY` | MuleRun (alternative — pending approval). Set `LLM_PROVIDER=mulerun` to use it. Claim credits at [credits.mule.page](https://credits.mule.page) with code **`0526BITGET`**. |
 
 ---
 
