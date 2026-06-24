@@ -1,6 +1,9 @@
 // CLI entry to run one (or N) perception→decision→log cycles outside the server.
 // Usage: npm run cycle [count]
+import { loadEnvConfig } from "@next/env";
 import { runCycle } from "../lib/engine";
+
+loadEnvConfig(process.cwd());
 
 async function main() {
   const n = Math.max(1, Number(process.argv[2] ?? 1) || 1);
