@@ -55,14 +55,8 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.05}>
-            <p className="eyebrow mt-12">
-              Bitget AI Hackathon S1 · Trading Agent
-            </p>
-          </Reveal>
-
           <Reveal delay={0.1}>
-            <h1 className="display mt-5 max-w-4xl text-5xl leading-[1.05] sm:text-7xl">
+            <h1 className="display mt-12 max-w-4xl text-5xl leading-[1.05] sm:text-7xl">
               Five signals. One <em>vote</em>. No emotion.
             </h1>
           </Reveal>

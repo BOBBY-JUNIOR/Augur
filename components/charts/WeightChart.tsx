@@ -12,18 +12,18 @@ import { SKILL_META } from "@/lib/ui";
 import { SKILLS, type WeightSnapshot } from "@/lib/types";
 
 export const axisTick = {
-  fill: "#7a6c66",
+  fill: "#5c6370",
   fontSize: 10,
   fontFamily: "var(--font-mono)",
 };
 
 export const tooltipStyle = {
-  background: "#150b0b",
-  border: "1px solid rgba(168,152,144,0.28)",
+  background: "#0a0e14",
+  border: "1px solid rgba(139,148,158,0.26)",
   borderRadius: 2,
   fontSize: 11,
   fontFamily: "var(--font-mono)",
-  color: "#f0e8e0",
+  color: "#e6edf3",
   boxShadow: "none",
 };
 
@@ -45,7 +45,7 @@ export function WeightChart({ history }: { history: WeightSnapshot[] }) {
         <XAxis
           dataKey="idx"
           tick={axisTick}
-          axisLine={{ stroke: "rgba(168,152,144,0.15)" }}
+          axisLine={{ stroke: "rgba(139,148,158,0.15)" }}
           tickLine={false}
         />
         <YAxis
@@ -57,7 +57,7 @@ export function WeightChart({ history }: { history: WeightSnapshot[] }) {
         />
         <Tooltip
           contentStyle={tooltipStyle}
-          cursor={{ stroke: "rgba(168,152,144,0.2)" }}
+          cursor={{ stroke: "rgba(139,148,158,0.2)" }}
           formatter={(v: number, k: string) => [
             `${v}%`,
             SKILL_META[k as keyof typeof SKILL_META]?.label ?? k,

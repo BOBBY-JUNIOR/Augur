@@ -28,7 +28,7 @@ export function PnlChart({ trades }: { trades: TradeRecord[] }) {
   }
 
   const last = data[data.length - 1].cum;
-  const color = last >= 0 ? "#d4a05c" : "#c4633a";
+  const color = last >= 0 ? "#34d399" : "#f43f5e";
 
   return (
     <ResponsiveContainer width="100%" height={248}>
@@ -42,14 +42,14 @@ export function PnlChart({ trades }: { trades: TradeRecord[] }) {
         <XAxis
           dataKey="idx"
           tick={axisTick}
-          axisLine={{ stroke: "rgba(168,152,144,0.15)" }}
+          axisLine={{ stroke: "rgba(139,148,158,0.15)" }}
           tickLine={false}
         />
         <YAxis tick={axisTick} axisLine={false} tickLine={false} unit="%" />
-        <ReferenceLine y={0} stroke="rgba(168,152,144,0.25)" strokeDasharray="2 3" />
+        <ReferenceLine y={0} stroke="rgba(139,148,158,0.25)" strokeDasharray="2 3" />
         <Tooltip
           contentStyle={tooltipStyle}
-          cursor={{ stroke: "rgba(168,152,144,0.2)" }}
+          cursor={{ stroke: "rgba(139,148,158,0.2)" }}
           formatter={(v: number) => [`${v >= 0 ? "+" : ""}${v}%`, "Cumulative PnL"]}
           labelFormatter={(l) => `CLOSE ${l}`}
         />

@@ -21,8 +21,8 @@ export function Logo({ className = "h-6 w-6" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="augurGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#d4a05c" />
-          <stop offset="100%" stopColor="#c4633a" />
+          <stop offset="0%" stopColor="#6ee7b7" />
+          <stop offset="100%" stopColor="#34d399" />
         </linearGradient>
       </defs>
 
@@ -40,7 +40,7 @@ export function Logo({ className = "h-6 w-6" }: { className?: string }) {
 
       {/* Iris + pupil */}
       <circle cx={cx} cy={cy} r="4.8" fill="url(#augurGrad)" />
-      <circle cx={cx} cy={cy} r="1.9" fill="#0a0a0a" />
+      <circle cx={cx} cy={cy} r="1.9" fill="#0a0e14" />
     </svg>
   );
 }

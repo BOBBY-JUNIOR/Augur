@@ -169,7 +169,7 @@ export default function Dashboard() {
             <span className="h-1.5 w-1.5 rounded-full bg-amber live-dot" />
             augur://decisions — newest first
           </div>
-          <div className="feed-scroll max-h-[640px] divide-y divide-[rgba(168,152,144,0.1)] overflow-y-auto">
+          <div className="feed-scroll max-h-[640px] divide-y divide-[rgba(139,148,158,0.1)] overflow-y-auto">
             {(data?.trades ?? []).slice(0, 14).map((t, i) => (
               <motion.div
                 key={t.id}

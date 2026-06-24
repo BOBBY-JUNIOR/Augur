@@ -164,7 +164,7 @@ function Detail({ t }: { t: TradeRecord }) {
                 <div
                   className="absolute top-0 h-full"
                   style={{
-                    background: s.score >= 0 ? "#d4a05c" : "#c4633a",
+                    background: s.score >= 0 ? "#34d399" : "#f43f5e",
                     left: "50%",
                     width: `${(Math.abs(s.score) / 2) * 100}%`,
                     transform: s.score >= 0 ? "none" : "translateX(-100%)",

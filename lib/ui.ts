@@ -3,13 +3,15 @@ import type { Direction, Regime, SkillId } from "./types";
 
 export type Tone = "amber" | "rust" | "mute";
 
-// Warm, on-palette line colors for the 5 skills (charts + legends).
+// Cohesive cool line colors for the 5 skills (charts + legends) — a calm
+// emerald→violet sweep, all distinct on a line chart, none colliding with the
+// rose loss/short hue.
 export const SKILL_META: Record<SkillId, { label: string; color: string }> = {
-  "macro-analyst": { label: "Macro", color: "#d4a05c" },
-  "sentiment-analyst": { label: "Sentiment", color: "#c4633a" },
-  "technical-analysis": { label: "Technical", color: "#e7c896" },
-  "market-intel": { label: "Market Intel", color: "#9c5a3c" },
-  "news-briefing": { label: "News", color: "#cf8a52" },
+  "macro-analyst": { label: "Macro", color: "#34d399" },
+  "sentiment-analyst": { label: "Sentiment", color: "#2dd4bf" },
+  "technical-analysis": { label: "Technical", color: "#38bdf8" },
+  "market-intel": { label: "Market Intel", color: "#818cf8" },
+  "news-briefing": { label: "News", color: "#a78bfa" },
 };
 
 export const ASSET_LABEL: Record<string, string> = {
@@ -19,9 +21,9 @@ export const ASSET_LABEL: Record<string, string> = {
 };
 
 export const REGIME_META: Record<Regime, { label: string; tone: Tone; dot: string }> = {
-  trending: { label: "Trending", tone: "amber", dot: "#d4a05c" },
-  ranging: { label: "Ranging", tone: "rust", dot: "#c4633a" },
-  unclear: { label: "Unclear", tone: "mute", dot: "#7a6c66" },
+  trending: { label: "Trending", tone: "amber", dot: "#34d399" },
+  ranging: { label: "Ranging", tone: "rust", dot: "#f43f5e" },
+  unclear: { label: "Unclear", tone: "mute", dot: "#5c6370" },
 };
 
 export const DIRECTION_META: Record<Direction, { label: string; tone: Tone }> = {
